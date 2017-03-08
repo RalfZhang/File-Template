@@ -8,7 +8,7 @@ An visual studio code extension for creating file from templates automatic.
 
 ## How to use  
 
-1. Open a file by VScode.  
+1. Open a new file by VScode.  
 2. `Ctrl + Shift + P`.  
 3. Input `Tmpl: Create Template` and press `Enter`. 
 
@@ -16,13 +16,13 @@ An visual studio code extension for creating file from templates automatic.
 # Supported Type
 
 
-- javascript
-- html
-- css
-- php
-- python
-- ruby
-- xml
+- JavaScript
+- HTML
+- CSS
+- PHP
+- Python
+- Ruby
+- XML
 
 
 # License
