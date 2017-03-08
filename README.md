@@ -4,6 +4,9 @@
 An visual studio code extension for creating file from templates automatic.   
 一个自动生成文件模板的 VScode 扩展。
 
+![Example](./example.gif)
+
+
 ## How to use  
 
 1. Open a new file by VScode.  
@@ -22,10 +25,10 @@ An visual studio code extension for creating file from templates automatic.
 - XML
 
 
-# GitHub  
+# Link  
 
-[Link](https://github.com/RalfZhang/File-Template)
-
+- [GitHub](https://github.com/RalfZhang/File-Template)  
+- [VS Code Market](https://marketplace.visualstudio.com/items?itemName=RalfZhang.filetemplate)
 
 # License  
 
