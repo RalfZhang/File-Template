@@ -4,8 +4,6 @@
 An visual studio code extension for creating file from templates automatic.   
 一个自动生成文件模板的 VScode 扩展。
 
-
-
 ## How to use  
 
 1. Open a new file by VScode.  
@@ -22,6 +20,11 @@ An visual studio code extension for creating file from templates automatic.
 - Python
 - Ruby
 - XML
+
+
+# GitHub  
+
+[Link](https://github.com/RalfZhang/File-Template)
 
 
 # License  
