@@ -13,8 +13,7 @@ An visual studio code extension for creating file from templates automatic.
 3. Input `Tmpl: Create Template` and press `Enter`. 
 
 
-# Supported Type
-
+# Supported Type  
 
 - JavaScript
 - HTML
@@ -25,5 +24,6 @@ An visual studio code extension for creating file from templates automatic.
 - XML
 
 
-# License
+# License  
+
 MIT
