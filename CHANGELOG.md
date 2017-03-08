@@ -1,7 +1,8 @@
 # Change Log
-All notable changes to the "filetemplate" extension will be documented in this file.
+All notable changes to this project will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
-## [Unreleased]
-- Initial release
+## [0.0.1] - 2017-03-08
+### Added
+- First publish
