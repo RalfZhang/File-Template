@@ -1,10 +1,10 @@
 # File Template
 
 
-An visual studio code extension for creating file from templates automatic.   
+A visual studio code extension for creating file from templates automatically.   
 一个自动生成文件模板的 VScode 扩展。
 
-![Example](./example.gif)
+![Example](https://raw.githubusercontent.com/RalfZhang/File-Template/master/example.gif)
 
 
 ## How to use  
