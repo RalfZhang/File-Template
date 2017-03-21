@@ -43,8 +43,11 @@ export function activate(context: vscode.ExtensionContext) {
             case 'xml':
                 str = tmplStr.xmlTmpl();
                 break;
+            case 'vue':
+                str = tmplStr.vueTmpl();
+                break;
             default:
-                vscode.window.showInformationMessage('暂不支持该类型文件');
+                vscode.window.showInformationMessage('Don\'t support the file type...');
                 return;
         }
         editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);

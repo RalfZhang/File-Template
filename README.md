@@ -23,6 +23,7 @@ A visual studio code extension for creating file from templates automatically.
 - Python
 - Ruby
 - XML
+- Vue
 
 
 # Link  

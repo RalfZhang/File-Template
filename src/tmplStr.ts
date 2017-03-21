@@ -102,3 +102,27 @@ export function xmlTmpl() {
 	$0
 </\${1:root}>`
 }
+
+export function vueTmpl() {
+    const d = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    return `<!--
+\${1:Description}
+@authors \${2:Your Name} (\${3:you@example.org})
+@date    ${d}
+@version \${4:1.0.0}
+-->
+<template>
+  <div>
+    \${5:Hello, World!}
+  </div>
+</template>
+
+<script>
+  export default {\$0}
+</script>
+
+<style lang="\${6:css}">
+  $7
+</style>
+`
+}
