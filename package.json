@@ -3,8 +3,7 @@
     "displayName": "File Template",
     "description": "An extension for creating file from templates automatic.",
     "version": "1.0.0",
-    "publisher": "TttT",
-    "publisher-bc": "RalfZhang",
+    "publisher": "RalfZhang",
     "license": "MIT",
     "icon": "logo.png",
     "engines": {

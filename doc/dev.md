@@ -8,7 +8,8 @@ F5 run
 #publish
 npm install -g vsce
 
-
+#tips
+- Change publisher in `package.json` before dev, or uninstall this extension.
 
 
 
