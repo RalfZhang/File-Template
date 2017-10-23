@@ -126,3 +126,16 @@ export function vueTmpl() {
 </style>
 `
 }
+
+export function testTmpl() {
+    return `
+$.ajax({
+    type: \${method},
+    url: \${url},
+    data: \${data},
+    dataType: \${dataType},
+    success: function (response) {
+        $0
+    }
+});`
+}
