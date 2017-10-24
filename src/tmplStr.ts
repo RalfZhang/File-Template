@@ -36,9 +36,10 @@ export function htmlTmpl() {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>\${1:Examples}</title>
-\${2:<meta name="description" content="$3">
-<meta name="keywords" content="$4">
-}<link href="$5" rel="stylesheet">
+<meta name='viewport' content='width=device-width,initial-scale=1\${2:,minimum-scale=1,maximum-scale=1,user-scalable=no}'/>
+\${3:<meta name="description" content="$4">
+<meta name="keywords" content="$5">
+}<link href="$6" rel="stylesheet">
 </head>
 <body>
     $0
@@ -48,7 +49,7 @@ export function htmlTmpl() {
 
 export function cssTmpl() {
     const d = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
-    return `\${1:@charset "\${2:UTF-8}";}
+    return `@charset "UTF-8";
 /**
  * \${3:Description}
  * @authors \${4:Your Name} (\${5:you@example.org})
