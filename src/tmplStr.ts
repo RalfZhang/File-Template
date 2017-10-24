@@ -19,10 +19,10 @@ let format = function date2str(x, y) {
 export function javascriptTmpl() {
     const d = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `/**
- * \${Description}
- * @authors \${Your Name} (\${you@example.org})
+ * \${1:Description}
+ * @authors \${2:Your Name} (\${3:you@example.org})
  * @date    ${d}
- * @version \${1.0.0}
+ * @version \${4:1.0.0}
  */
 
 $0`;
@@ -63,14 +63,14 @@ export function phpTmpl() {
     const d = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `<?php
 /**
- * \${Description}
- * @authors \${Your Name} (\${you@example.org})
+ * \${1:Description}
+ * @authors \${2:Your Name} (\${3:you@example.org})
  * @date    ${d}
- * @version \${1.0.0}
+ * @version \${4:1.0.0}
  */
 
-class \${2:ClassName} \${3:extends \${4:AnotherClass}} {
-    $5
+class \${5:ClassName} \${6:extends \${7:AnotherClass}} {
+    $8
     function __construct(){
         $0
     }
@@ -82,11 +82,11 @@ export function pythonTmpl() {
     return `#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Date    : ${d}
-# @Author  : \${Your Name} (\${you@example.org})
-# @Link    : \${link}
-# @Version : \${1.0.0}
+# @Author  : \${1:Your Name} (\${2:you@example.org})
+# @Link    : \${3:link}
+# @Version : \${4:1.0.0}
 
-\${1:import os}
+\${5:import os}
 $0`
 }
 
