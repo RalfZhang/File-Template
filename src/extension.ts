@@ -47,9 +47,9 @@ export function activate(context: vscode.ExtensionContext) {
                 str = tmplStr.vueTmpl();
                 break;
             default:
-                // vscode.window.showInformationMessage('Don\'t support the file type...');
-                // return;
-                str = tmplStr.testTmpl();
+                vscode.window.showInformationMessage('Don\'t support the file type...');
+                return;
+                // str = tmplStr.testTmpl();
         }
         editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);
     });
