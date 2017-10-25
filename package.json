@@ -2,7 +2,7 @@
     "name": "filetemplate",
     "displayName": "File Template",
     "description": "An extension for creating file from templates automatic.",
-    "version": "1.0.1",
+    "version": "1.1.1",
     "publisher": "RalfZhang",
     "license": "MIT",
     "icon": "logo.png",
