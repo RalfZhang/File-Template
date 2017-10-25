@@ -21,6 +21,38 @@
             {
                 "command": "extension.tmpl",
                 "title": "Tmpl: Create Template"
+            },
+            {
+                "command": "extension.tmpljavascript",
+                "title": "Tmpl js: Create JavaScript Template"
+            },
+            {
+                "command": "extension.tmplhtml",
+                "title": "Tmpl html: Create HTML Template"
+            },
+            {
+                "command": "extension.tmplcss",
+                "title": "Tmpl css: Create CSS Template"
+            },
+            {
+                "command": "extension.tmplphp",
+                "title": "Tmpl php: Create PHP Template"
+            },
+            {
+                "command": "extension.tmplpython",
+                "title": "Tmpl py: Create Python Template"
+            },
+            {
+                "command": "extension.tmplruby",
+                "title": "Tmpl rb: Create Ruby Template"
+            },
+            {
+                "command": "extension.tmplxml",
+                "title": "Tmpl xml: Create XML Template"
+            },
+            {
+                "command": "extension.tmplvue",
+                "title": "Tmpl vue: Create Vue Template"
             }
         ]
     },
