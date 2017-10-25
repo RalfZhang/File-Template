@@ -55,6 +55,23 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     context.subscriptions.push(tmplAuto);
+
+    [
+        { cmd: 'tmpljavascript', tmplFunName: 'javascriptTmpl'}, 
+        { cmd: 'tmplhtml', tmplFunName: 'htmlTmpl'}, 
+        { cmd: 'tmplcss', tmplFunName: 'cssTmpl'}, 
+        { cmd: 'tmplphp', tmplFunName: 'phpTmpl'}, 
+        { cmd: 'tmplpython', tmplFunName: 'pythonTmpl'}, 
+        { cmd: 'tmplruby', tmplFunName: 'rubyTmpl'}, 
+        { cmd: 'tmplxml', tmplFunName: 'xmlTmpl'}, 
+        { cmd: 'tmplvue', tmplFunName: 'vueTmpl'}, 
+    ].forEach(e=>{
+        let TmplCmd = vscode.commands.registerCommand('extension.'+e.cmd, ()=>{
+            const editor = vscode.window.activeTextEditor;
+            editor.insertSnippet(new vscode.SnippetString(tmplStr[e.tmplFunName]()), editor.selection.start);            
+        });
+        context.subscriptions.push(TmplCmd);
+    })
 }
 
 // this method is called when your extension is deactivated
