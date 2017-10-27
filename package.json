@@ -6,6 +6,11 @@
     "publisher": "RalfZhang",
     "license": "MIT",
     "icon": "logo.png",
+    "keywords": [
+        "file",
+        "template",
+        "tmpl"
+    ],
     "engines": {
         "vscode": "^1.10.0"
     },
