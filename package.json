@@ -2,10 +2,16 @@
     "name": "filetemplate",
     "displayName": "File Template",
     "description": "An extension for creating file from templates automatic.",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "publisher": "RalfZhang",
     "license": "MIT",
     "icon": "logo.png",
+    "keywords": [
+        "file",
+        "template",
+        "tmpl",
+        "snippet"
+    ],
     "engines": {
         "vscode": "^1.10.0"
     },
@@ -13,7 +19,15 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.tmpl"
+        "onCommand:extension.tmpl",
+        "onCommand:extension.tmpljavascript",
+        "onCommand:extension.tmplhtml",
+        "onCommand:extension.tmplcss",
+        "onCommand:extension.tmplphp",
+        "onCommand:extension.tmplpython",
+        "onCommand:extension.tmplruby",
+        "onCommand:extension.tmplxml",
+        "onCommand:extension.tmplvue"
     ],
     "main": "./out/src/extension",
     "contributes": {
