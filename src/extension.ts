@@ -18,8 +18,11 @@ export function activate(context: vscode.ExtensionContext) {
         // The code you place here will be executed every time your command is executed
 
         // Display a message box to the user
-
         const editor = vscode.window.activeTextEditor;
+        if(!editor) {
+            vscode.window.showInformationMessage("Please open a file...");
+            return;
+        }
         let str = '';
         switch (editor.document.languageId) {
             case 'javascript':
@@ -49,7 +52,6 @@ export function activate(context: vscode.ExtensionContext) {
             default:
                 vscode.window.showInformationMessage('Don\'t support the file type...');
                 return;
-                // str = tmplStr.testTmpl();
         }
         editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);
     });
@@ -68,6 +70,10 @@ export function activate(context: vscode.ExtensionContext) {
     ].forEach(e=>{
         let TmplCmd = vscode.commands.registerCommand('extension.'+e.cmd, ()=>{
             const editor = vscode.window.activeTextEditor;
+            if(!editor) {
+                vscode.window.showInformationMessage("Please open a file...");
+                return;
+            }
             editor.insertSnippet(new vscode.SnippetString(tmplStr[e.tmplFunName]()), editor.selection.start);            
         });
         context.subscriptions.push(TmplCmd);
