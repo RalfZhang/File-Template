@@ -3,11 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
-## [1.1.1] - 2017-03-21
+## [1.1.1] - 2017-10-25
 ### Update
 - Add every languages' cmd
 
-## [1.0.1] - 2017-03-21
+## [1.0.1] - 2017-10-24
 ### Update
 - Update to run with vscode 1.17
 
