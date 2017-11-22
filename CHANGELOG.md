@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
+## [1.1.3] - 2017-11-22
+### Update
+- Fix error info when not opening a file 
+
 ## [1.1.1] - 2017-10-25
 ### Update
 - Add every languages' cmd
