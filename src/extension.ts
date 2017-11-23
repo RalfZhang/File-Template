@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.window.showInformationMessage("Please open a file...");
             return;
         }
-        let str = '';
+        let str : string = '';
         switch (editor.document.languageId) {
             case 'javascript':
                 str = tmplStr.javascriptTmpl();
