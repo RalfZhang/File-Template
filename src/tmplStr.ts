@@ -1,4 +1,8 @@
 'use strict';
+
+const fs = require('fs');
+const path = require('path');
+
 let format = function (x, y) {
     var z = {
         M: x.getMonth() + 1,
@@ -16,8 +20,22 @@ let format = function (x, y) {
     });
 }
 
+export function getFile(cb) {
+    console.log(path.resolve(__dirname, './templates/js.tmpl'));
+    fs.open(path.resolve(__dirname, './templates/js.tmpl'), 'r', (err, fd)=>{
+        if(err){
+            if(err.code === 'ENOENT') {
+                console.error('file does not exist');
+                return;
+            }
+            throw err;
+        }
+        cb(fd);
+    })
+}
+
 export function javascriptTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `/**
  * \${1:Description}
  * @authors \${2:Your Name} (\${3:you@example.org})
@@ -29,7 +47,7 @@ $0`;
 }
 
 export function htmlTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `<!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +66,7 @@ export function htmlTmpl() {
 }
 
 export function cssTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `@charset "UTF-8";
 /**
  * \${3:Description}
@@ -60,7 +78,7 @@ $0
 `;
 }
 export function phpTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `<?php
 /**
  * \${1:Description}
@@ -78,7 +96,7 @@ class \${5:ClassName} \${6:extends \${7:AnotherClass}} {
 }
 
 export function pythonTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Date    : ${d}
@@ -91,13 +109,13 @@ $0`
 }
 
 export function rubyTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `\${1:#!/usr/bin/env ruby
 }$0`
 }
 
 export function xmlTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `<?xml version="1.0" encoding="UTF-8" ?>
 <\${1:root}>
 	$0
@@ -105,7 +123,7 @@ export function xmlTmpl() {
 }
 
 export function vueTmpl() {
-    const d : string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    const d: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
     return `<!--
 \${1:Description}
 @authors \${2:Your Name} (\${3:you@example.org})
