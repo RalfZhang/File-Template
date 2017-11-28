@@ -3,6 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as tmplStr from './tmplStr';
+import { tmpdir } from 'os';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -25,14 +26,20 @@ export function activate(context: vscode.ExtensionContext) {
         }
         let str : string = '';
         switch (editor.document.languageId) {
-            case 'javascript':
-                str = tmplStr.javascriptTmpl();
-                break;
-            case 'html':
-                str = tmplStr.htmlTmpl();
-                break;
             case 'css':
                 str = tmplStr.cssTmpl();
+                break;
+            case 'javascript':
+                // str = tmplStr.javascriptTmpl();
+                // break;
+                tmplStr.getFile(fd=>{
+                    str = fd;
+                    console.log(fd);
+                    editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);                    
+                })
+                return;
+            case 'html':
+                str = tmplStr.htmlTmpl();
                 break;
             case 'php':
                 str = tmplStr.phpTmpl();
