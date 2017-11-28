@@ -32,9 +32,9 @@ export function activate(context: vscode.ExtensionContext) {
             case 'javascript':
                 // str = tmplStr.javascriptTmpl();
                 // break;
-                tmplStr.getFile(fd=>{
-                    str = fd;
-                    console.log(fd);
+                tmplStr.getFile(data=>{
+                    str = data;
+                    console.log('data: ', data);
                     editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);                    
                 })
                 return;

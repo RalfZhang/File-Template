@@ -22,7 +22,7 @@ let format = function (x, y) {
 
 export function getFile(cb) {
     console.log(path.resolve(__dirname, './templates/js.tmpl'));
-    fs.open(path.resolve(__dirname, './templates/js.tmpl'), 'r', (err, fd)=>{
+    fs.readFile(path.resolve(__dirname, './templates/js.tmpl'), 'utf8', (err, data)=>{
         if(err){
             if(err.code === 'ENOENT') {
                 console.error('file does not exist');
@@ -30,7 +30,7 @@ export function getFile(cb) {
             }
             throw err;
         }
-        cb(fd);
+        cb(data);
     })
 }
 
