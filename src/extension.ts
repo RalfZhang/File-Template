@@ -25,42 +25,12 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
         let str : string = '';
-        switch (editor.document.languageId) {
-            case 'css':
-                str = tmplStr.cssTmpl();
-                break;
-            case 'javascript':
-                // str = tmplStr.javascriptTmpl();
-                // break;
-                tmplStr.getFile(data=>{
-                    str = data;
-                    console.log('data: ', data);
-                    editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);                    
-                })
-                return;
-            case 'html':
-                str = tmplStr.htmlTmpl();
-                break;
-            case 'php':
-                str = tmplStr.phpTmpl();
-                break;
-            case 'python':
-                str = tmplStr.pythonTmpl();
-                break;
-            case 'ruby':
-                str = tmplStr.rubyTmpl();
-                break;
-            case 'xml':
-                str = tmplStr.xmlTmpl();
-                break;
-            case 'vue':
-                str = tmplStr.vueTmpl();
-                break;
-            default:
-                vscode.window.showInformationMessage('Don\'t support the file type...');
-                return;
-        }
-        editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);
+        tmplStr.getTmpl(editor.document.languageId, data=>{
+            // str = data;
+            editor.insertSnippet(new vscode.SnippetString(data), editor.selection.start);                    
+        });
+        // vscode.window.showInformationMessage('Don\'t support the file type...');
+        // editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);
     });
 
     context.subscriptions.push(tmplAuto);
@@ -81,7 +51,9 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showInformationMessage("Please open a file...");
                 return;
             }
-            editor.insertSnippet(new vscode.SnippetString(tmplStr[e.tmplFunName]()), editor.selection.start);            
+            tmplStr.getTmpl(editor.document.languageId, data=>{
+                editor.insertSnippet(new vscode.SnippetString(data), editor.selection.start);     
+            })       
         });
         context.subscriptions.push(TmplCmd);
     })
