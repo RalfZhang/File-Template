@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
+## [2.0.0] - 2017-12-01
+### Update
+- Up to template file reading mode.
+- User can edit or add template.
+
 ## [1.1.3] - 2017-11-22
 ### Update
 - Fix error info when not opening a file 
