@@ -17,18 +17,21 @@ let format = function (x, y) {
         return x.getFullYear().toString().slice(-v.length);
     });
 };
-function getTmpl(languageId, cb) {
-    fs.readFile(path.resolve(__dirname, `./templates/${languageId}.tmpl`), 'utf8', (err, data) => {
-        if (err) {
-            if (err.code === 'ENOENT') {
-                console.error('file does not exist');
+function getTmpl(languageId) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(path.resolve(__dirname, `./templates/${languageId}.tmpl`), 'utf8', (err, data) => {
+            if (err) {
+                if (err.code === 'ENOENT') {
+                    reject(new Error('Template file of the language does not exist'));
+                    return;
+                }
+                reject(err);
                 return;
             }
-            throw err;
-        }
-        const date = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
-        data = data.replace('${date}', date);
-        cb(data);
+            const date = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+            const str = data.replace('${date}', date);
+            resolve(str);
+        });
     });
 }
 exports.getTmpl = getTmpl;

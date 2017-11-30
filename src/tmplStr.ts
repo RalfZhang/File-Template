@@ -1,3 +1,5 @@
+import { resolve } from "dns";
+
 'use strict';
 
 const fs = require('fs');
@@ -20,18 +22,20 @@ let format = function (x, y) {
     });
 }
 
-export function getTmpl(languageId: string, cb) {
-    
-    fs.readFile(path.resolve(__dirname, `./templates/${languageId}.tmpl`), 'utf8', (err, data)=>{
-        if(err){
-            if(err.code === 'ENOENT') {
-                console.error('file does not exist');
+export function getTmpl(languageId: string) {
+    return new Promise((resolve, reject)=>{
+        fs.readFile(path.resolve(__dirname, `./templates/${languageId}.tmpl`), 'utf8', (err, data) => {
+            if (err) {
+                if (err.code === 'ENOENT') {
+                    reject(new Error('Template file of the language does not exist'));
+                    return;
+                }
+                reject(err);
                 return;
             }
-            throw err;
-        }
-        const date: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
-        data = data.replace('${date}', date);
-        cb(data);
+            const date: string = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
+            const str: string = data.replace('${date}', date);
+            resolve(str);
+        })
     })
 }

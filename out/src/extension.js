@@ -6,6 +6,14 @@ const vscode = require("vscode");
 const tmplStr = require("./tmplStr");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
+function setTmpl(languageId) {
+    const editor = vscode.window.activeTextEditor;
+    tmplStr.getTmpl(languageId).then((data) => {
+        editor.insertSnippet(new vscode.SnippetString(data), editor.selection.start);
+    }).catch(err => {
+        vscode.window.showInformationMessage(err.message);
+    });
+}
 function activate(context) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
@@ -21,24 +29,18 @@ function activate(context) {
             vscode.window.showInformationMessage("Please open a file...");
             return;
         }
-        let str = '';
-        tmplStr.getTmpl(editor.document.languageId, data => {
-            // str = data;
-            editor.insertSnippet(new vscode.SnippetString(data), editor.selection.start);
-        });
-        // vscode.window.showInformationMessage('Don\'t support the file type...');
-        // editor.insertSnippet(new vscode.SnippetString(str), editor.selection.start);
+        setTmpl(editor.document.languageId);
     });
     context.subscriptions.push(tmplAuto);
     [
-        { cmd: 'tmpljavascript', tmplFunName: 'javascriptTmpl' },
-        { cmd: 'tmplhtml', tmplFunName: 'htmlTmpl' },
-        { cmd: 'tmplcss', tmplFunName: 'cssTmpl' },
-        { cmd: 'tmplphp', tmplFunName: 'phpTmpl' },
-        { cmd: 'tmplpython', tmplFunName: 'pythonTmpl' },
-        { cmd: 'tmplruby', tmplFunName: 'rubyTmpl' },
-        { cmd: 'tmplxml', tmplFunName: 'xmlTmpl' },
-        { cmd: 'tmplvue', tmplFunName: 'vueTmpl' },
+        { cmd: 'tmpljavascript', languageId: 'javascript' },
+        { cmd: 'tmplhtml', languageId: 'html' },
+        { cmd: 'tmplcss', languageId: 'css' },
+        { cmd: 'tmplphp', languageId: 'php' },
+        { cmd: 'tmplpython', languageId: 'python' },
+        { cmd: 'tmplruby', languageId: 'ruby' },
+        { cmd: 'tmplxml', languageId: 'xml' },
+        { cmd: 'tmplvue', languageId: 'vue' },
     ].forEach(e => {
         let TmplCmd = vscode.commands.registerCommand('extension.' + e.cmd, () => {
             const editor = vscode.window.activeTextEditor;
@@ -46,9 +48,7 @@ function activate(context) {
                 vscode.window.showInformationMessage("Please open a file...");
                 return;
             }
-            tmplStr.getTmpl(editor.document.languageId, data => {
-                editor.insertSnippet(new vscode.SnippetString(data), editor.selection.start);
-            });
+            setTmpl(e.languageId);
         });
         context.subscriptions.push(TmplCmd);
     });
