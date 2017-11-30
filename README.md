@@ -29,7 +29,7 @@ A visual studio code extension for creating file from templates automatically.
 1. Edit template  
 Go to `~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/out/src/templates/` and there are some `.tmpl` files. You can edit it as you wish with [ TextMate snippet syntax](https://manual.macromates.com/en/snippets).
 
-2. Custom template  
+2. Add template  
 Except the default language types, you can add other language template.  
 Here are the steps:  
     > 1 Open `~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/out/src/templates/`  
