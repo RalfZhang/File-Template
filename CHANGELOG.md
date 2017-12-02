@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
+## [2.0.3] - 2017-12-03
+### Update
+- Move template folder to asset.
+
 ## [2.0.0] - 2017-12-01
 ### Update
 - Up to template file reading mode.

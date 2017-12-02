@@ -23,7 +23,7 @@ let format = function (x: Date, y: string) {
 
 export function getTmpl(languageId: string) {
     return new Promise((resolve, reject) => {
-        fs.readFile(path.resolve(__dirname, `./templates/${languageId}.tmpl`), 'utf8', (err, data) => {
+        fs.readFile(path.resolve(__dirname, `../../asset/templates/${languageId}.tmpl`), 'utf8', (err, data) => {
             if (err) {
                 if (err.code === 'ENOENT') {
                     reject(new Error('Template file of the language does not exist'));

@@ -2,9 +2,7 @@
 .vscode-test/**
 out/test/**
 test/**
-src/**
 doc/**
 **/*.map
 .gitignore
-tsconfig.json
-vsc-extension-quickstart.md
+yarn.lock
