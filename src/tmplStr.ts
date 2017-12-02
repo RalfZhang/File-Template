@@ -1,11 +1,10 @@
-import { resolve } from "dns";
-
 'use strict';
+import { resolve } from "dns";
 
 const fs = require('fs');
 const path = require('path');
 
-let format = function (x, y) {
+let format = function (x: Date, y: string) {
     var z = {
         M: x.getMonth() + 1,
         d: x.getDate(),
@@ -14,7 +13,7 @@ let format = function (x, y) {
         s: x.getSeconds()
     };
     y = y.replace(/(M+|d+|h+|m+|s+)/g, function (v) {
-        return ((v.length > 1 ? "0" : "") + eval('z.' + v.slice(-1))).slice(-2)
+        return ((v.length > 1 ? "0" : "") + z[v.slice(-1)]).slice(-2)
     });
 
     return y.replace(/(y+)/g, function (v) {
@@ -23,7 +22,7 @@ let format = function (x, y) {
 }
 
 export function getTmpl(languageId: string) {
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
         fs.readFile(path.resolve(__dirname, `./templates/${languageId}.tmpl`), 'utf8', (err, data) => {
             if (err) {
                 if (err.code === 'ENOENT') {
