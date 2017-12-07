@@ -16,6 +16,11 @@ function setTmpl(languageId: string) {
     })
 }
 
+interface CmdInterface {
+    cmd: string;
+    languageId: string;
+}
+
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -40,6 +45,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(tmplAuto);
 
+
+
     [
         { cmd: 'tmpljavascript', languageId: 'javascript' },
         { cmd: 'tmplhtml', languageId: 'html' },
@@ -49,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
         { cmd: 'tmplruby', languageId: 'ruby' },
         { cmd: 'tmplxml', languageId: 'xml' },
         { cmd: 'tmplvue', languageId: 'vue' },
-    ].forEach(e => {
+    ].forEach((e: CmdInterface) => {
         let TmplCmd = vscode.commands.registerCommand('extension.' + e.cmd, () => {
             const editor = vscode.window.activeTextEditor;
             if (!editor) {
