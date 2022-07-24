@@ -1,7 +1,7 @@
 {
     "name": "filetemplate",
     "displayName": "File Template",
-    "description": "An extension for creating file from templates automatic.",
+    "description": "An extension for creating file from templates automatically.",
     "version": "2.0.4",
     "publisher": "RalfZhang",
     "license": "MIT",
