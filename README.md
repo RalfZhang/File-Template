@@ -13,6 +13,11 @@ A visual studio code extension for creating file from templates automatically.
 2. `Ctrl + Shift + P`.  
 3. Input `Tmpl: Create Template` and press `Enter`. 
 
+## How to setup your infomation
+
+If you don't want to input your name, email and some further information many time each when you create a new file, located the template folder at 
+`~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/our/src/tmplStr.js` and edit your personal info.
+
 # Default Types  
 
 - JavaScript
