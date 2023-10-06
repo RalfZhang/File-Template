@@ -13,6 +13,37 @@ A visual studio code extension for creating file from templates automatically.
 2. `Ctrl + Shift + P`.  
 3. Input `Tmpl: Create Template` and press `Enter`. 
 
+## How to setup your infomation
+
+- If you don't want to input your name, email and some further information many time each when you create a new file, located the template folder at 
+`~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/our/src/tmplStr.js` and edit your personal info.
+
+- If you met require as same as `sonnh` which was present in [this conversation](https://github.com/RalfZhang/File-Template/pull/9), please follow the instruction bellow to add filename in a file.
+
+    - Go to `~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/asset/templates/<your_template>.tmpl`.
+    - Add this line to your template
+        ```
+        File      : ${Filename}
+        ```
+    - Go to `~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/our/src/tmplStr.js` and uncomment two lines in function `getTmpl`.
+    - Example, my template is `shellscript.tmpl`, so I add one line to my template. It should be from
+        ```bash
+        # =========================================
+        # Date      : ${date}
+        # Author    : ${1:Your Name} (${2:you@example.org})
+        # Link      : ${3:link}
+        # =========================================
+        ```
+        to
+        ```bash
+        # =========================================
+        # Date      : ${date}
+        # Author    : ${1:Your Name} (${2:you@example.org})
+        # Link      : ${3:link}
+        # File      : ${Filename}
+        # =========================================
+        ```
+
 # Default Types  
 
 - JavaScript
