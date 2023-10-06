@@ -49,12 +49,14 @@ function getTmpl(languageId, fileName) {
             const authorName = '<input_your_name_here>';
             const authorEmail = 'input_your_email_here';
             const link = 'input_your_website_or_link_here';
-            const filename = getFileName();
+            // Uncomment the line bellow if you want add name of file to the template
+            // const filename = getFileName();
             const fileContent = data.replace('${date}', date)
                 .replace('${1:Your Name}', authorName)
                 .replace('${2:you@example.org}', authorEmail)
                 .replace('${3:link}', link)
-                .replace('${4: Filename}', filename);
+                // Uncomment the line bellow if you want add name of file to the template
+                // .replace('${Filename}', filename);
             resolve(fileContent);
         });
     });
