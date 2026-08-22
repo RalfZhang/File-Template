@@ -5,6 +5,10 @@
     "version": "3.0.0",
     "publisher": "RalfZhang",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RalfZhang/File-Template.git"
+    },
     "icon": "logo.png",
     "keywords": [
         "file",

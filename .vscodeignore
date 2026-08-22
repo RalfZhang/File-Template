@@ -6,3 +6,5 @@ doc/**
 **/*.map
 .gitignore
 yarn.lock
+todo.md
+tsconfig.json

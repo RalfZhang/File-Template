@@ -3,3 +3,4 @@ npm-debug.*
 *.vsix
 out/*
 .vscode-test/
+todo.md
