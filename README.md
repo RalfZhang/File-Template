@@ -27,12 +27,14 @@ A visual studio code extension for creating file from templates automatically.
 # More  
 
 1. Edit template  
-Go to `~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/asset/templates/` and there are some `.tmpl` files. You can edit it as you wish with [ TextMate snippet syntax](https://manual.macromates.com/en/snippets).
+Run `Tmpl: Open Templates Folder` from the Command Palette (`Ctrl+Shift+P`) to open your personal templates folder. It lives outside this extension's install directory, so its contents are not affected when the extension updates. The folder starts out with a copy of every default `.tmpl` file for you to edit with [ TextMate snippet syntax](https://manual.macromates.com/en/snippets).
+
+    > Upgrading from an older version where you edited files under `~/.vscode/extensions/ralfzhang.filetemplate-<version>/asset/templates/`? The first activation after upgrading tries to copy those files into the new folder automatically. If it can't find them (VS Code may have already removed the old version's files before the update ran), open that old folder yourself if it still exists and copy your `.tmpl` files into the folder opened by `Tmpl: Open Templates Folder`.
 
 2. Add template  
 Except the default language types, you can add other language template.  
 Here are the steps:  
-    > 1 Open `~/.vscode/extensions/RalfZhang.filetemplate-2.0.0/asset/templates/`  
+    > 1 Run `Tmpl: Open Templates Folder` from the Command Palette to open your personal templates folder.  
     > 2 Add `${languageIdentifier}.tmpl` file, such as `cpp.tmpl` if you want to add C++ template. You can find language identifier [here](https://code.visualstudio.com/docs/languages/identifiers).  
     > 3 Open a new C++ file, and try `Tmpl: Create Template` command.  
 

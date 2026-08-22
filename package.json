@@ -2,7 +2,7 @@
     "name": "filetemplate",
     "displayName": "File Template",
     "description": "An extension for creating file from templates automatically.",
-    "version": "2.0.4",
+    "version": "3.0.0",
     "publisher": "RalfZhang",
     "license": "MIT",
     "icon": "logo.png",
@@ -13,21 +13,25 @@
         "snippet"
     ],
     "engines": {
-        "vscode": "^1.10.0"
+        "vscode": "^1.74.0"
     },
     "categories": [
-        "Other"
+        "Snippets"
     ],
     "activationEvents": [
         "onCommand:extension.tmpl",
         "onCommand:extension.tmpljavascript",
+        "onCommand:extension.tmpljavascriptreact",
+        "onCommand:extension.tmpltypescript",
+        "onCommand:extension.tmpltypescriptreact",
         "onCommand:extension.tmplhtml",
         "onCommand:extension.tmplcss",
         "onCommand:extension.tmplphp",
         "onCommand:extension.tmplpython",
         "onCommand:extension.tmplruby",
         "onCommand:extension.tmplxml",
-        "onCommand:extension.tmplvue"
+        "onCommand:extension.tmplvue",
+        "onCommand:extension.tmplOpenFolder"
     ],
     "main": "./out/src/extension",
     "contributes": {
@@ -39,6 +43,18 @@
             {
                 "command": "extension.tmpljavascript",
                 "title": "Tmpl js: Create JavaScript Template"
+            },
+            {
+                "command": "extension.tmpljavascriptreact",
+                "title": "Tmpl jsx: Create JavaScript XML Template"
+            },
+            {
+                "command": "extension.tmpltypescript",
+                "title": "Tmpl ts: Create TypeScript Template"
+            },
+            {
+                "command": "extension.tmpltypescriptreact",
+                "title": "Tmpl tsx: Create TypeScript XML Template"
             },
             {
                 "command": "extension.tmplhtml",
@@ -67,20 +83,26 @@
             {
                 "command": "extension.tmplvue",
                 "title": "Tmpl vue: Create Vue Template"
+            },
+            {
+                "command": "extension.tmplOpenFolder",
+                "title": "Tmpl: Open Templates Folder"
             }
         ]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
         "compile": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
+        "pretest": "tsc -p ./",
+        "test": "node ./out/test/runTest.js"
     },
     "devDependencies": {
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "typescript": "^5.4.5",
+        "@types/vscode": "^1.74.0",
+        "@types/node": "^20.11.30",
+        "@types/mocha": "^10.0.6",
+        "mocha": "^10.4.0",
+        "glob": "^10.3.12",
+        "@vscode/test-electron": "^3.1.0"
     }
 }
