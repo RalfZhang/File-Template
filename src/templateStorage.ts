@@ -1,6 +1,6 @@
 'use strict';
 // Templates a user edited or added must not live inside this extension's own (per-version)
-// install directory: VS Code installs every update into a brand new
+// install directory: VS Code installs every update into a brand-new
 // `<publisher>.<name>-<version>` folder and eventually removes the old one, which silently
 // wipes out anything the user changed there. This module keeps the *effective* templates in a
 // version-independent folder instead (see `extension.ts`), and does a best-effort import of
@@ -56,10 +56,10 @@ export function copyMissingTmplFiles(srcDir: string, destDir: string): string[] 
         }
         // `getTmpl` always looks up `${languageId}.tmpl` in all-lowercase (VS Code language
         // ids are always lowercase), so the copy lands under a lowercased name too. Without
-        // this, a file named e.g. `CPP.TMPL` would copy over fine but never actually be found
-        // afterwards on a case-sensitive filesystem (Linux) — macOS/Windows would hide the bug
-        // because their default filesystems already treat `cpp.tmpl`/`CPP.TMPL` as the same
-        // path.
+        // this, a file named, say, `CPP.TMPL` would copy over fine but would never actually
+        // be found afterwards on a case-sensitive filesystem (Linux) — macOS/Windows would hide
+        // the bug because their default filesystems already treat `cpp.tmpl`/`CPP.TMPL` as the
+        // same path.
         const destName = name.toLowerCase();
         const destPath = path.join(destDir, destName);
         if (fs.existsSync(destPath)) {
@@ -100,6 +100,13 @@ function compareVersionsDescending(a: string, b: string): number {
     }
     return 0;
 }
+
+// This whole legacy-migration codepath (this function, `LEGACY_MIGRATION_CUTOFF`, and the
+// `if` guarding it in `migrateAndSeed`) exists solely to carry forward templates customized
+// under version 2.0.4 or earlier, which had no per-user storage at all — see CHANGELOG.md. Once
+// nobody is still upgrading from one of those versions, there's nothing left to migrate: delete
+// all three (and this comment) after the cutoff date has safely passed.
+const LEGACY_MIGRATION_CUTOFF = new Date('2027-10-01T00:00:00Z');
 
 // Finds every templates folder left behind by other installed copies of this same extension
 // (e.g. `~/.vscode/extensions/ralfzhang.filetemplate-2.0.4`), newest version first.
@@ -148,10 +155,14 @@ export interface MigrateAndSeedResult {
 // `asset/templates`. Never overwrites a file already present in `userTemplatesDir`.
 export function migrateAndSeed(options: { extensionPath: string; userTemplatesDir: string }): MigrateAndSeedResult {
     const migrated: string[] = [];
-    for (const legacyDir of findLegacyTemplateDirs(options.extensionPath)) {
-        for (const name of copyMissingTmplFiles(legacyDir, options.userTemplatesDir)) {
-            if (migrated.indexOf(name) === -1) {
-                migrated.push(name);
+    // See `LEGACY_MIGRATION_CUTOFF` above: stop scanning for old-version folders once this has
+    // had years to run on every upgrade path, rather than doing it on every activation forever.
+    if (new Date() < LEGACY_MIGRATION_CUTOFF) {
+        for (const legacyDir of findLegacyTemplateDirs(options.extensionPath)) {
+            for (const name of copyMissingTmplFiles(legacyDir, options.userTemplatesDir)) {
+                if (migrated.indexOf(name) === -1) {
+                    migrated.push(name);
+                }
             }
         }
     }

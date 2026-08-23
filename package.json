@@ -1,7 +1,7 @@
 {
     "name": "filetemplate",
     "displayName": "File Template",
-    "description": "An extension for creating file from templates automatically.",
+    "description": "An extension for creating files from templates automatically.",
     "version": "3.0.0",
     "publisher": "RalfZhang",
     "license": "MIT",
@@ -50,7 +50,7 @@
             },
             {
                 "command": "extension.tmpljavascriptreact",
-                "title": "Tmpl jsx: Create JavaScript XML Template"
+                "title": "Tmpl jsx: Create JavaScript JSX Template"
             },
             {
                 "command": "extension.tmpltypescript",
@@ -58,7 +58,7 @@
             },
             {
                 "command": "extension.tmpltypescriptreact",
-                "title": "Tmpl tsx: Create TypeScript XML Template"
+                "title": "Tmpl tsx: Create TypeScript JSX Template"
             },
             {
                 "command": "extension.tmplhtml",

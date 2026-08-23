@@ -6,8 +6,8 @@ import * as tmplStr from './tmplStr';
 import * as templateStorage from './templateStorage';
 import * as path from 'path';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+// This method is called when your extension is activated; that happens the very first time
+// one of its commands is executed.
 
 interface CmdInterface {
     cmd: string;
@@ -16,9 +16,10 @@ interface CmdInterface {
 
 const STORAGE_NOTICE_SHOWN_KEY = 'filetemplate.storageNoticeShown';
 
-// `globalStorageUri`/`globalStoragePath` were added to the vscode API after the typings this
-// project currently builds against; read them dynamically so this keeps compiling either way,
-// and fail clearly on the (very unlikely, very old VS Code) case where neither exists.
+// `globalStorageUri`/`globalStoragePath` were added to the VS Code API after the typings this
+// project currently builds against were written; read them dynamically so this keeps compiling
+// either way, and fail clearly in the (very unlikely, very old VS Code) case where neither
+// exists.
 function getGlobalStorageDir(context: vscode.ExtensionContext): string {
     const ctx: any = context;
     const dir = (ctx.globalStorageUri && ctx.globalStorageUri.fsPath) || ctx.globalStoragePath;
@@ -38,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
     // folder. That folder gets replaced on every update, so any template a user edited or
     // added there was silently lost on the next update. The templates that matter now live in
     // a per-user folder that isn't tied to the extension's version; `asset/templates` is kept
-    // only as the read-only factory defaults, used to seed that folder and as a fallback.
+    // only as read-only factory defaults, used to seed that folder and as a fallback.
     const bundledTemplatesDir = path.join(context.extensionPath, 'asset', 'templates');
     let searchDirs = [bundledTemplatesDir];
     let userTemplatesDir: string;
@@ -56,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
             const openFolder = 'Open Templates Folder';
             const message = migrated.length > 0
                 ? `File Template moved your customized templates to a folder that survives future updates: ${userTemplatesDir}`
-                : `File Template now keeps custom/added templates in a folder that survives future updates: ${userTemplatesDir}`;
+                : `File Template now keeps the templates you edit or add in a folder that survives future updates: ${userTemplatesDir}`;
             vscode.window.showInformationMessage(message, openFolder).then(choice => {
                 if (choice === openFolder) {
                     vscode.commands.executeCommand('extension.tmplOpenFolder');
@@ -69,7 +70,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     let tmplOpenFolder = vscode.commands.registerCommand('extension.tmplOpenFolder', () => {
         if (!userTemplatesDir) {
-            vscode.window.showInformationMessage("Templates folder isn't available in this session.");
+            vscode.window.showInformationMessage("The templates folder isn't available in this session.");
             return;
         }
         vscode.commands.executeCommand('revealFileInOS', vscode.Uri.file(userTemplatesDir));
@@ -86,7 +87,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
+    // Now provide the implementation of the command with registerCommand
     // The commandId parameter must match the command field in package.json
     let tmplAuto = vscode.commands.registerCommand('extension.tmpl', () => {
         // The code you place here will be executed every time your command is executed
@@ -129,6 +130,6 @@ export function activate(context: vscode.ExtensionContext) {
     })
 }
 
-// this method is called when your extension is deactivated
+// This method is called when your extension is deactivated.
 export function deactivate() {
 }

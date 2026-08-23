@@ -27,7 +27,7 @@ export function getTmpl(languageId: string, searchDirs: string[]) {
     return new Promise<string>((resolve, reject) => {
         const tryNext = (dirs: string[]) => {
             if (dirs.length === 0) {
-                reject(new Error('Template file of the language does not exist'));
+                reject(new Error(`No template file found for the "${languageId}" language.`));
                 return;
             }
             const filePath = path.resolve(dirs[0], `${languageId}.tmpl`);

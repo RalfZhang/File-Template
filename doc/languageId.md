@@ -5,7 +5,7 @@
 |----|----|
 | Windows Bat | bat |
 | Clojure | clojure |
-| Coffeescript | coffeescript |
+| CoffeeScript | coffeescript |
 | C | c |
 | C++ | cpp |
 | C# | csharp |
@@ -18,7 +18,7 @@
 | Groovy | groovy |
 | Handlebars | handlebars |
 | HTML | html |
-| Ini | ini |
+| INI | ini |
 | Java | java |
 | JavaScript | javascript |
 | JSON | json |
@@ -29,7 +29,7 @@
 | Objective-C | objective-c |
 | Perl | perl and perl6 |
 | PHP | php |
-| Powershell | powershell |
+| PowerShell | powershell |
 | Pug | jade |
 | Python | python |
 | R | r |

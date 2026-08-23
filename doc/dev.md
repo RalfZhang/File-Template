@@ -1,16 +1,16 @@
-#start
+# Start
 `npm install -g yo generator-code`
 `yo code`
-npm install
-F5 run
+`npm install`
+Press `F5` to run.
 
 
-#publish
-npm install -g vsce
+# Publish
+`npm install -g @vscode/vsce`
 
-#tips
-- Change publisher in `package.json` before dev, or uninstall this extension.
+# Tips
+- Change the `publisher` field in `package.json` before you start developing, or uninstall the published extension first.
 
 
 
-https://code.visualstudio.com/docs/extensions/example-hello-world
+https://code.visualstudio.com/api/get-started/your-first-extension
