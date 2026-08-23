@@ -2,7 +2,7 @@
     "name": "filetemplate",
     "displayName": "File Template",
     "description": "An extension for creating files from templates automatically.",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "publisher": "RalfZhang",
     "license": "MIT",
     "repository": {
@@ -42,55 +42,68 @@
         "commands": [
             {
                 "command": "extension.tmpl",
-                "title": "Tmpl: Create Template"
+                "title": "Insert Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmpljavascript",
-                "title": "Tmpl js: Create JavaScript Template"
+                "title": "Insert JavaScript Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmpljavascriptreact",
-                "title": "Tmpl jsx: Create JavaScript JSX Template"
+                "title": "Insert JavaScript JSX Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmpltypescript",
-                "title": "Tmpl ts: Create TypeScript Template"
+                "title": "Insert TypeScript Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmpltypescriptreact",
-                "title": "Tmpl tsx: Create TypeScript JSX Template"
+                "title": "Insert TypeScript JSX Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplhtml",
-                "title": "Tmpl html: Create HTML Template"
+                "title": "Insert HTML Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplcss",
-                "title": "Tmpl css: Create CSS Template"
+                "title": "Insert CSS Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplphp",
-                "title": "Tmpl php: Create PHP Template"
+                "title": "Insert PHP Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplpython",
-                "title": "Tmpl py: Create Python Template"
+                "title": "Insert Python Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplruby",
-                "title": "Tmpl rb: Create Ruby Template"
+                "title": "Insert Ruby Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplxml",
-                "title": "Tmpl xml: Create XML Template"
+                "title": "Insert XML Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplvue",
-                "title": "Tmpl vue: Create Vue Template"
+                "title": "Insert Vue Template",
+                "category": "File Template"
             },
             {
                 "command": "extension.tmplOpenFolder",
-                "title": "Tmpl: Open Templates Folder"
+                "title": "Open Templates Folder",
+                "category": "File Template"
             }
         ]
     },

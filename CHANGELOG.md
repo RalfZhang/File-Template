@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [3.0.1]
+### Changed
+- Renamed the commands from `Tmpl: Create <language> Template` to `File Template: Insert <language> Template`: they insert a template at the cursor rather than creating anything, and the category now matches the extension's name. The command ids are unchanged, so existing keybindings keep working.
+- The message shown when no template exists for the current language now names the language it looked for.
+
 ## [3.0.0] - 2026-08-22
 ### Fixed
 - The templates you edit or add now live in a per-user folder outside the extension's install directory, so they survive extension updates instead of being wiped out along with the previous version's folder. On the first activation after an upgrade, templates found in a previous version's folder are copied into the new location automatically on a best-effort basis (VS Code may already have removed that folder by the time the update runs, so this can't be guaranteed for every upgrade path). This one-time import exists only to carry forward templates customized under version 2.0.4 or earlier, and it stops running after 2027-10-01 (see `LEGACY_MIGRATION_CUTOFF` in `src/templateStorage.ts`); the related code should be deleted once that date has safely passed.
