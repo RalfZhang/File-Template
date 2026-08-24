@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es2020",
+        "module": "node16",
+        "moduleResolution": "node16",
+        "target": "es2022",
         "outDir": "out",
         "lib": [
-            "es2020"
+            "es2022"
         ],
         "sourceMap": true,
         "rootDir": ".",
@@ -12,6 +13,11 @@
         "esModuleInterop": true,
         "skipLibCheck": true
     },
+    "include": [
+        "src/**/*.ts",
+        "test/runTest.ts",
+        "test/suite/**/*.ts"
+    ],
     "exclude": [
         "node_modules",
         ".vscode-test"
