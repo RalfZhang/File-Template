@@ -42,7 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
     // only as read-only factory defaults, used to seed that folder and as a fallback.
     const bundledTemplatesDir = path.join(context.extensionPath, 'asset', 'templates');
     let searchDirs = [bundledTemplatesDir];
-    let userTemplatesDir: string;
+    let userTemplatesDir: string | undefined;
 
     try {
         userTemplatesDir = templateStorage.getUserTemplatesDir(getGlobalStorageDir(context));
@@ -77,8 +77,10 @@ export function activate(context: vscode.ExtensionContext) {
     });
     context.subscriptions.push(tmplOpenFolder);
 
-    function setTmpl(languageId: string) {
-        const editor = vscode.window.activeTextEditor;
+    // The editor is passed in rather than re-read from `vscode.window.activeTextEditor`: the
+    // caller has already checked that one is open, and by the time the template file has been
+    // read the active editor may have changed (or closed).
+    function setTmpl(editor: vscode.TextEditor, languageId: string) {
         tmplStr.getTmpl(languageId, searchDirs).then((data: string) => {
             editor.insertSnippet(new vscode.SnippetString(data), editor.selection.start);
         }).catch(err => {
@@ -98,7 +100,7 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.window.showInformationMessage("Please open a file...");
             return;
         }
-        setTmpl(editor.document.languageId);
+        setTmpl(editor, editor.document.languageId);
     });
 
     context.subscriptions.push(tmplAuto);
@@ -124,7 +126,7 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showInformationMessage("Please open a file...");
                 return;
             }
-            setTmpl(e.languageId)
+            setTmpl(editor, e.languageId)
         });
         context.subscriptions.push(TmplCmd);
     })

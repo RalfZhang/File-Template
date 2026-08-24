@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 let format = function (x: Date, y: string) {
-    var z = {
+    var z: { [token: string]: number } = {
         M: x.getMonth() + 1,
         d: x.getDate(),
         h: x.getHours(),
