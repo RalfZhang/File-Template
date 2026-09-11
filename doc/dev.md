@@ -21,6 +21,9 @@ of a default. Entries are never removed.
 # Publish
 `npm install -g @vscode/vsce`
 
+`npx @vscode/vsce publish --pre-release`
+or `npx @vscode/vsce publish`
+
 # Tips
 - Change the `publisher` field in `package.json` before you start developing, or uninstall the published extension first.
 
