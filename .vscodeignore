@@ -2,8 +2,11 @@
 .vscode-test/**
 out/test/**
 test/**
+src/**
 doc/**
+scripts/**
 **/*.map
+*.vsix
 .gitignore
 yarn.lock
 todo.md

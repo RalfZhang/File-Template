@@ -2,7 +2,7 @@
     "name": "filetemplate",
     "displayName": "File Template",
     "description": "An extension for creating files from templates automatically.",
-    "version": "3.0.1",
+    "version": "3.1.0",
     "publisher": "RalfZhang",
     "license": "MIT",
     "repository": {
@@ -21,21 +21,6 @@
     },
     "categories": [
         "Snippets"
-    ],
-    "activationEvents": [
-        "onCommand:extension.tmpl",
-        "onCommand:extension.tmpljavascript",
-        "onCommand:extension.tmpljavascriptreact",
-        "onCommand:extension.tmpltypescript",
-        "onCommand:extension.tmpltypescriptreact",
-        "onCommand:extension.tmplhtml",
-        "onCommand:extension.tmplcss",
-        "onCommand:extension.tmplphp",
-        "onCommand:extension.tmplpython",
-        "onCommand:extension.tmplruby",
-        "onCommand:extension.tmplxml",
-        "onCommand:extension.tmplvue",
-        "onCommand:extension.tmplOpenFolder"
     ],
     "main": "./out/src/extension",
     "contributes": {
@@ -101,6 +86,11 @@
                 "category": "File Template"
             },
             {
+                "command": "extension.tmplEdit",
+                "title": "Edit or Add a Template",
+                "category": "File Template"
+            },
+            {
                 "command": "extension.tmplOpenFolder",
                 "title": "Open Templates Folder",
                 "category": "File Template"
@@ -111,7 +101,9 @@
         "vscode:prepublish": "tsc -p ./",
         "compile": "tsc -watch -p ./",
         "pretest": "tsc -p ./",
-        "test": "node ./out/test/runTest.js"
+        "test": "node ./out/test/runTest.js",
+        "test:unit": "tsc -p ./ && mocha --ui tdd out/test/suite/templateStorage.test.js",
+        "hashes": "node ./scripts/update-default-hashes.js"
     },
     "devDependencies": {
         "typescript": "^5.4.5",

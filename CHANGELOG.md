@@ -3,7 +3,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [3.0.1]
+## [3.1.0] - 2026-09-10
+### Changed
+- The templates folder now holds **only** the templates you customize. Anything you have not
+  overridden comes from the templates the extension ships, so improvements to those reach
+  existing installs on update instead of being shadowed forever by a copy. Versions 3.0.0 and
+  3.0.1 filled the folder with a copy of every default on first run; copies you never edited are
+  removed and every template you customized is kept.
+- Opening a built-in template with `Edit or Add a Template` and closing it without changing
+  anything no longer turns that language into an override: the copy is dropped again, and you
+  keep getting improvements to the built-in template. Changing the file is what makes it yours.
+- The one-time import of templates customized under 2.0.4 or earlier now brings over only the
+  files you actually changed, for the same reason, and also looks in the pre-2.0.4 layout
+  (`out/src/templates`) used by 2.0.0 - 2.0.3.
+- Every `${date}` in a template is replaced, not just the first one.
+- An empty template file in your folder is treated as absent, so it no longer silently shadows
+  the built-in one.
+### Added
+- New command `File Template: Edit or Add a Template`: pick a language (the current file's
+  language first), and get your own editable copy of the built-in template, or a blank file for a
+  language nothing ships a template for. Delete the file to go back to the built-in template.
+- The templates folder gets a `README.md` explaining the override rule.
+
+## [3.0.1] - 2026-08-23
 ### Changed
 - Renamed the commands from `Tmpl: Create <language> Template` to `File Template: Insert <language> Template`: they insert a template at the cursor rather than creating anything, and the category now matches the extension's name. The command ids are unchanged, so existing keybindings keep working.
 - The message shown when no template exists for the current language now names the language it looked for.
