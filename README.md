@@ -1,8 +1,10 @@
 # File Template
 
+![Version](https://badgen.net/vs-marketplace/v/RalfZhang.filetemplate)
+![Installs](https://badgen.net/vs-marketplace/d/RalfZhang.filetemplate)
+[![License: MIT](https://img.shields.io/github/license/RalfZhang/File-Template)](https://github.com/RalfZhang/File-Template/blob/master/LICENSE)
 
 A Visual Studio Code extension for creating files from templates automatically.
-一个自动生成文件模板的 VS Code 扩展。
 
 ![Example](https://raw.githubusercontent.com/RalfZhang/File-Template/master/doc/example.gif)
 
@@ -10,7 +12,7 @@ A Visual Studio Code extension for creating files from templates automatically.
 ## How to use
 
 1. Open a new file in VS Code.
-2. Press `Ctrl + Shift + P`.
+2. Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS) to open the Command Palette.
 3. Type `File Template: Insert Template` and press `Enter`.
 
 ## Default Types
